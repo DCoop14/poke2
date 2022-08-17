@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<title>Title</title>
+</head>
+<body>
+
+    <form class="container" method="POST">
+        {{ form.hidden_tag() }}
+
+        {{ form.name }}
+        {{ form.submit }}
+    </form>
+
+    {% if pokemon %}
+        <div class="card" style="width: 18rem;">
+            <img src="" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">{{ pokemon.name }}</h5>
+            <p class="card-text">
+                <b>Ability: {{ pokemon.ability }}</b>
+                <ul>
+                    <li>HP: {{ pokemon.hp }}</li>
+                    <li>BAS: {{ pokemon.base_experience }}</li>
+                    <li>ATK: {{ pokemon.attack }}</li>
+                    <li>DEF: {{ pokemon.defense }}</li>
+                </ul>
+            </p>
+            
+            </div>
+        </div>
+    {% endif %}
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+</html>

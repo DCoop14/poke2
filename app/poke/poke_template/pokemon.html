@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body id=poke-background></body>
+  
+
+
+  <form class="container" method="POST">
+    {{ form.hidden_tag() }}
+
+    {{ form.poke_name(class='form-control', placeholder='Search for Pokemon by Name') }}
+    <br>
+    {{ form.submit(class='btn btn-primary') }}
+  </form>
+
+  <br>
+  {% if poke_dict %}
+  <div class="card" style="width: 18rem;">
+    <img src="{{ poke_dict.img_url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ poke_dict.name.title() }}</h5>
+      <p class="card-text">
+        <br>
+        Ability: {{ poke_dict.ability.title() }}
+      <ul>
+        HP: {{ poke_dict.hp }}
+        <br>
+        ATK: {{ poke_dict.attack }}
+        <br>
+        DEF: {{ poke_dict.defense }}
+      </ul>
+      </p>
+      {% if caught %}
+      <a type="button" class="btn btn-primary" href="/release/{{poke_dict.name}}">Already Caught! Release Pokemon?</a>
+      {% else %}
+      <a type="button" class="btn btn-warning" href="/catch/{{poke_dict.name}}">Catch Pokemon!</a>
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+{% endblock %}

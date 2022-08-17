@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h4>BATTLE!</h4>
+<br>
+{% for u in users %}
+
+<div class="card" style="width: 18rem;">
+  <img src="" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ u.username }}</h5>
+    <p class="card-text">
+      <a href="{{ }}" class="card-link btn btn-danger">Battle User</a>
+    </p>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}
